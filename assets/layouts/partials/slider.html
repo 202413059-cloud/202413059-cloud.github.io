@@ -1,0 +1,27 @@
+<!-- Hugo Pipes로 CSS 로드 (이 파셜을 넣은 페이지에서만 로드) -->
+{{ $css := resources.Get "css/slider.css" | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $css.Permalink }}">
+
+<div class="hb-slider" aria-label="image slider">
+  <div class="hb-slides" role="list">
+    {{/* static/images/slider 폴더 안의 파일들 불러오기 */}}
+    {{ range (readDir "static/images/slider") }}
+      {{ if not .IsDir }}
+        <div class="hb-slide" role="listitem">
+          <img src="{{ (print "images/slider/" .Name) | relURL }}" alt="slide image" loading="lazy" decoding="async">
+        </div>
+      {{ end }}
+    {{ end }}
+  </div>
+
+  <!-- 이전/다음 버튼 -->
+  <button class="hb-prev" aria-label="Previous slide">&#10094;</button>
+  <button class="hb-next" aria-label="Next slide">&#10095;</button>
+
+  <!-- 하단 점 네비게이션 (JS가 채움) -->
+  <div class="hb-dots" aria-hidden="true"></div>
+</div>
+
+<!-- Hugo Pipes로 JS 로드 -->
+{{ $js := resources.Get "js/slider.js" | resources.Minify | resources.Fingerprint }}
+<script defer src="{{ $js.Permalink }}"></script>
