@@ -1,0 +1,24 @@
+/*Hugo Pipes로 css 로드 (스타일이 이 파셜을 넣은, 해당 페이지에서만 로드됨)*/
+{{ $css := resources.Get "css/slider.css" | resource.Minify | resource.Fingerprint }}
+<link rel ="stylesheet" href = "{{$css.Permalink}}">
+/*Minify : 불필요 공백 제거(용량 절감)*/
+/*Fingerprint: 파일 해시 붙임. (캐시 무력화)*/
+
+
+/* 슬라이드 이미지들 */
+<div class= "hb-slider" aria-label="image slider">
+    <div class= "hb-slides" role = "list">
+        {{/* static/images/slider 폴더 안의 파일들 불러오기*/}}
+            {{ range (readDir "static/images/slider") }}
+                {{if not .IsDir}}
+                    <div class="hb-slide" role="listitem">
+                        <image src="{{ (print "image/slider/" ,Name) | relURL}}"alt= "slide image">
+                    </div>
+                {{ end }}
+            {{ end }}
+        </div>
+
+
+/* Hugo Pipes로 JS 로드*/
+{{$js := resources.Get "js/slider.js" | resources.Minify | resources.Fingerprint}}
+<script defer src= "{{ $js.Permalink}}"></script>
