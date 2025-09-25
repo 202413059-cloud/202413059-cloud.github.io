@@ -1,0 +1,62 @@
+/*슬라이더 큰 틀*/
+.hb-slider {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px; 
+    /*모서리 둥글게*/
+}
+
+/*여러 슬라이더 묶음*/
+.hb-slides {
+    display: flex;
+    /*슬라이드 가로로 나란히 배치*/
+    transition: transform 0.5s ease-in-out;
+    /*슬라이드 이동시 애니메이션 효과(부드럽게 넘어감)*/
+}
+
+/*이미지 한 장이이 화면 꽉 차게  해줌*/
+.hb-slide {
+    min-width: 100%; 
+    flex-shrink: 0;
+}
+
+.hb-slide img { display: block; width: 100%; height: auto; }
+
+
+/*이전, 다음 버튼*/
+.hb-prev, .hb-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.4);  /*바탕화면 설정*/
+    color: #fff;
+    border: 0;
+    padding: 8px 12px;
+    cursor: pointer;
+}
+
+.hb-prev { left: 8px; }
+.hb-next {right: 8px;}
+
+
+/*하단 점(인디케이터)*/
+
+.hb-dots {
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 6px;
+}
+
+.hb-dots button {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    border: 0;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+}
+
+.hb-dots button[aria-current="true"] {background: #fff;}
