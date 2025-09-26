@@ -11,3 +11,9 @@ main:
   - name: Uses
     url: uses/
     weight: 30
+  - name: English
+    url: /en/
+    weight: 100
+  - name: 한국어
+    url: /ko/
+    weight: 101
