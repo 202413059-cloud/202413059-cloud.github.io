@@ -3,8 +3,10 @@
 # Hugo Documentation: https://gohugo.io/getting-started/configuration/#all-configuration-settings
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
-title: "Creator's Blog (Hugo Theme)" # Website name
-baseURL: 'https://example.com/' # Website URL
+title: "Lee Jueun's midterm Project" # Website name
+baseURL: "https://202413059-cloud.github.io/" # Website URL
+canonifyURLs: true
+languageCode: "en"
 
 ############################
 ## PAGE OPTIONS
