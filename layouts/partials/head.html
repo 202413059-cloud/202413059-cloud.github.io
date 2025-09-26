@@ -17,14 +17,19 @@
     <meta property="og:url" content="{{ .Permalink }}">
     {{ with .Params.images }}
     <meta property="og:image" content="{{ index . 0}}">
+    {{ else }}
+        <meta property="og:image" content="{{ "images/og.jpg" | relURL }}">
     {{ end }}
+
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="{{ .Title }}">
     <meta name="twitter:description" content="{{ .Site.Params.description }}">
     {{ with .Params.images }}
-    <meta name="twitter:image" content="{{ index . 0 }}">
+        <meta name="twitter:image" content="{{ index . 0 }}">
+    {{ else }}
+        <meta name="twitter:image" content="{{ "images/og.jpg" | reURL }}">
     {{ end }}
 
     <link rel="icon" href="{{ "favicon.ico" | relURL }}" type="image/x-icon">
