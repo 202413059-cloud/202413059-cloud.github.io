@@ -1,5 +1,5 @@
 ---
-title: 'Home'
+title: '안녕하세요'
 date: 2023-10-24
 type: landing
 sections:
