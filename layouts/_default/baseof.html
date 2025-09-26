@@ -1,0 +1,22 @@
+{{ define "baseof" }}
+<!DOCTYPE html>
+<html lang="{{ .Site.Language.Lang }}">
+<head>
+    {{ block "head" . }}
+        {{ partial "head.html" . }}{{ end }}
+
+        {{/* FAB */}}
+        {{ $fabcss := resources.Get "css/fab.css" | resources.Minify | resources.Fingerprint}}
+        <link rel="stylesheet" href="{{ $fabcss.Permalink }}">
+    {{ end }}
+</head>
+<body class="{{ .Type}}">
+    {{ block "main" .}}{{ end }}
+
+    {{/*FAB 본문 출력 */}}
+    {{ partial "fab.html" . }}
+    {{ $fabjs := resources.Get "js/fab.js" | resources.Minify | resources.Fingerprint }}
+    <script defer src="{{ $fabjs.Permalink }}"></script>
+</body>
+</html>
+{{ end }}
