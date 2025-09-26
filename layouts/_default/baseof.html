@@ -3,7 +3,7 @@
 <html lang="{{ .Site.Language.Lang }}">
 <head>
     {{ block "head" . }}
-        {{ partial "head.html" . }}{{ end }}
+        {{ partial "head.html" . }}
 
         {{/* FAB */}}
         {{ $fabcss := resources.Get "css/fab.css" | resources.Minify | resources.Fingerprint}}
