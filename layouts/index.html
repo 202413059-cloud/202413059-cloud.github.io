@@ -1,4 +1,6 @@
 {{define "main"}}
+{{ $fabcss := resources.Get "css/fab.css" | resources.Minify | resources.Fingerprint}}
+<link rel="stylesheet" href="{{ $fabcss.Permalink}}">
 <main class = "container">
     {{ partial "slider.html" . }}
     {{/*기존 홈 콘텐츠(원하면 블록 추가)*/}}
