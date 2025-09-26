@@ -1,5 +1,5 @@
 ---
-title: 'Home'
+title: 'Hello'
 date: 2023-10-24
 type: landing
 sections:
