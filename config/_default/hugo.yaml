@@ -12,6 +12,11 @@ languageCode: "en"
 ## PAGE OPTIONS
 ############################
 
+params:
+  logo: 
+    main: "images/logo.png"
+    alt: "Lee Jueun Logo"
+
 cascade:
   # Blog post options
   - _target:
