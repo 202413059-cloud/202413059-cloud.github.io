@@ -3,9 +3,14 @@
 # Documentation: https://docs.hugoblox.com/
 # This file is formatted using YAML syntax - learn more at https://learnxinyminutes.com/docs/yaml/
 
+title: "Lee Jueun midterm project"
 author: "Lee Ju eun"
 description: "Lee jueun's midterm project site."
 keywords: ["Computer Science and Algorithm", "Lee Ju EUn"]
+
+branding:
+  logo: "/images/logo.png"
+  logo_text: "Lee Jueun Midterm Project"
 
 # Appearance
 appearance:
@@ -40,7 +45,7 @@ header:
 # Site footer
 footer:
   copyright:
-    notice: '© {year} Me. This work is licensed under {license}'
+    notice: '© {year} Lee Ju eun. This work is licensed under {license}'
     license:
       enable: true
       allow_derivatives: false
@@ -58,7 +63,7 @@ features:
     enable: false
   privacy_pack:
     enable: false
-  repository:
-    url: 'https://github.com/HugoBlox/hugo-blox-builder/'
-    content_dir: starters/blog/content
-    branch: main
+repository:
+  url: 'https://github.com/202413059-cloud/202413059-cloud.github.io'
+  content_dir: content
+  branch: main
