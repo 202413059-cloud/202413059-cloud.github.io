@@ -5,11 +5,14 @@ main:
   - name: Home
     url: /
     weight: 10
+  - name: Projects
+    url: /projects/
+    weight: 15
   - name: Topics
-    url: tags/
+    url: /tags/
     weight: 20
   - name: Uses
-    url: uses/
+    url: /uses/
     weight: 30
   - name: English
     url: /en/
@@ -17,3 +20,14 @@ main:
   - name: 한국어
     url: /ko/
     weight: 101
+
+projects:
+  - name: Algorithms
+    url: /projects/algorithms/
+    parent: Projects
+  - name: Design Patterns
+    url: /projects/design-patterns/
+    parent: Projects
+  - name: Tools
+    url: /projects/tools/
+    parent: Projects
