@@ -1,0 +1,134 @@
+class abnormal_transaction_Detector:
+    def run(self):
+        try:
+            data = self.load_data()
+            results = self.detect(data)
+            self.report(results)
+        except Exception as e:
+            self.handle_error(e)
+
+    class  Stock :
+        def __init__(self, tID, stockname, buyorsell, quantity, originprice, wantprice, presenttime, account_id):  
+            self.tID=tID
+            self.stockname=stockname
+            self.buyorsell=buyorsell   #buy or sell
+            self.quantity=quantity
+            self.originprice=originprice
+            self.wantprice=wantprice
+            self.presenttime=presenttime
+            self.account_id=account_id
+    
+    # --- 템플릿 메소드에서 호출되는 훅 메소드들 ---
+    def load_data(self):
+        print("please input data that you want to detect\n")
+        data=[]
+        line=input(">> ")
+
+        trans=line.split(";")
+
+        for tx_n in trans:
+            tx_n=tx_n.strip()
+            if not tx_n:
+                continue
+            parts=tx_n.split()
+
+            #입력값
+            tID=int(parts[0])
+            stockname=parts[1]
+            buyorsell=parts[2]
+            quantity=int(parts[3])
+            originprice=int(parts[4])
+            wantprice=int(parts[5])
+            presenttime=int(parts[6])
+            account_id=parts[7]
+
+            tx=self.Stock(tID, stockname, buyorsell, quantity, originprice, wantprice, presenttime, account_id)
+            data.append(tx)
+
+            
+
+        return data
+        
+
+    def detect(self, data):
+
+        results=[]
+
+        #Rule1
+        from collections import defaultdict
+        sell_count = defaultdict(set)
+        for tx in data:
+            if tx.buyorsell == "sell":
+                sell_count[tx.stockname].add(tx.account_id)
+        for stock, accs in sell_count.items():
+            if len(accs) >=5:
+                results.append(("type1", stock))
+
+        #Rule2
+        buy_count=defaultdict(set)
+        for tx in data:
+            if tx.buyorsell=="buy" and tx.quantity>=100:
+                buy_count[tx.stockname].add(tx.account_id)
+        for stock, accs in buy_count.items():
+            if len(accs)>=3:
+                results.append(("type2", stock))
+
+        #Rule3
+        for tx in data:
+            if (tx.wantprice >= tx.originprice * 5):
+                results.append(("type3", tx.stockname))
+            
+        #rule4
+        for i in range(len(data)-1):
+            tx1, tx2 = data[i], data[i+1]
+            if (
+                tx1.buyorsell=="sell"
+                and tx1.stockname==tx2.stockname
+                and tx1.account_id != tx2.account_id
+            ):
+                results.append(("type4", tx1.stockname))
+        if not results:
+            return [("OK", None)]
+        return results
+         
+
+    def report(self, result):
+        for detecta, stock in result:
+            if detecta == "OK":
+                print("I can't find abnormal transaction")
+            elif detecta=="type1":
+                print("Type 1: too many people want to sell the same stock")
+            elif detecta=="type2":
+                print("Type 2: people want to too many stocks")
+            elif detecta=="type3":
+                print("Type 3: One person wants to buy stocks more than five times than the origin price")
+            elif detecta=="type4":
+                print("Type 4: Someone wants to buy a stock right after someone sells it")
+
+
+    def handle_error(self, e):
+        if (self.tID<0 or self.tID>1000):
+            print("error")
+            return 1
+        if self.buyorsell not in ["buy", "sell"]:
+            print("error")
+            return 1
+        if (self.quantity>1000):
+            print("error")
+            return 1
+        if (self.originprice <0):
+            print("error")
+            return 1
+        if (self.wantprice <0):
+            print("error")
+            return 1
+        if (self.presenttime < 0 or self.presenttime >24):
+            print("error")
+            return 1
+        
+
+
+if __name__ == "__main__":
+    abnormal_transaction_Detector().run()
+
+
