@@ -1,0 +1,124 @@
+package Stt;
+
+
+public class Student {
+    private int studentID;
+    private String name;
+
+
+    Student(int a, String b){
+        studentID=a;
+        name=b;
+    }
+
+
+    public void showStudentInfo(){
+        System.out.println("studentID: "+studentID+", name: "+name);
+    }
+
+
+}
+
+
+Student
+
+package Stt;
+
+
+public class StudentArray {
+    private Student Sarray[];
+
+
+    StudentArray(int n){
+        Sarray=new Student[n];
+    }
+
+
+    public void setstu(int index, Student st){
+        Sarray[index]=st;
+    }
+
+
+
+
+    public void showStudentArray(){
+        for (Student s: Sarray){
+            s.showStudentInfo();
+        }
+    }
+
+
+
+
+
+
+
+
+}
+
+
+StudentArray
+
+package Stt;
+
+
+public class StudentTest {
+
+
+    public static void main(String args[]){
+    StudentArray stset = new StudentArray(3);
+   
+    stset.setstu(0, new Student(1001, "James"));
+    stset.setstu(1, new Student(1002, "Tomas"));
+    stset.setstu(2, new Student(1003, "Edward"));
+
+
+    stset.showStudentArray();
+
+
+    }
+}
+
+
+StudentTest
+
+
+package Stt;
+import java.util.ArrayList;
+
+
+public class StudentArrayList {
+    private ArrayList<Student> aList;
+
+
+    public StudentArrayList(){
+        aList = new ArrayList<Student>();
+    }
+
+
+    public void AddStudent(Student st){
+        aList.add(st);
+    }
+
+
+    public void ArrayInfo(){
+        for (Student s: aList){
+            s.showStudentInfo();
+        }
+    }
+}
+
+
+StudentArrayList
+
+StudentArrayList alst = new StudentArrayList();
+
+
+    alst.AddStudent(new Student(1001, "James"));
+    alst.AddStudent(new Student(1002, "Tomas"));
+    alst.AddStudent(new Student(1003, "Edward"));
+
+
+    alst.ArrayInfo();
+–test하기
+

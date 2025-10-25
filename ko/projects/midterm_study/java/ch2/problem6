@@ -1,0 +1,33 @@
+package Stt;
+
+
+public class StudentTest {
+
+
+    public static void main(String args[]){
+        char[][] arr=new char[13][2];
+        char num=97;
+
+
+        for (int i=0; i<2; i++){
+            for (int j=0; j<13; j++){
+                arr[j][i]=num;
+                num++;
+            }
+        }
+
+
+        for (char[] r : arr){
+            for (char c: r){
+                System.out.print(c+" ");
+            }
+            System.out.println();
+        }
+
+
+
+
+    }
+}
+
+

@@ -1,0 +1,131 @@
+package Stt;
+
+
+public class Car {
+    Car(){};
+
+
+    public void start(){
+        System.out.println("시동을 켭니다.");
+    }
+    public void drive(){
+        System.out.println("달립니다.");
+    }
+    public void stop(){
+        System.out.println("멈춥니다.");
+    }
+    public void turnoff(){
+        System.out.println("시동을 끕니다.");
+    }
+    public void washCar(){
+        System.out.println("세차를 합니다.");
+    }
+    public void refuel(){
+        System.out.println("주유합니다.");
+    }
+    public void wiper(){
+        System.out.println("창문을 와이퍼가 닦습니다.");
+    }
+   
+
+
+    final public void run(){
+        start();
+        drive();
+        turnoff();
+        washCar();
+        stop();
+    }
+}
+
+
+
+Bus
+package Stt;
+
+
+public class Bus extends Car{
+    @Override
+    public void refuel(){
+        System.out.println("천연가스 충전");
+    }
+
+
+    public void takePassenger(){
+        System.out.println("승객을 버스에 태웁니다");
+    }
+}
+
+
+
+
+Avante
+package Stt;
+
+
+public class Avante extends Car {
+    @Override
+   public void start(){
+        System.out.println("Avante 시동을 켭니다.");
+    }
+    @Override    
+    public void drive(){
+        System.out.println("Avante 달립니다.");
+    }
+    @Override    
+    public void stop(){
+        System.out.println("Avante 멈춥니다.");
+    }
+    @Override
+    public void turnoff(){
+        System.out.println("Avante 시동을 끕니다.");
+    }
+}
+
+
+
+
+Carrtest
+package Stt;
+import java.util.ArrayList;
+
+
+public class CarTest {
+    public static void main(String[] args){
+        ArrayList<Car> carList=new ArrayList<Car>();
+        carList.add(new Sonata());
+        carList.add(new Grandeur());
+        carList.add(new Avante());
+        carList.add(new Genesis());
+
+
+        for(Car car: carList){
+            car.run();
+            System.out.println("==========");
+        }
+   
+        Bus bus = new Bus();
+        AutoCar autoCar = new AutoCar();
+
+
+        bus.run();
+        autoCar.run();
+
+
+        bus.refuel();
+        autoCar.refuel();
+
+
+        bus.takePassenger();
+        autoCar.load();
+
+
+        bus.stop();
+        autoCar.stop();
+
+
+   
+    }
+}
+
+

@@ -1,0 +1,26 @@
+public class Person {
+    private int age;
+    private String name;
+    private boolean ismarried;
+    private int numchil;
+
+
+    Person(int num, String nm, boolean marry, int nchil){
+        age=num;
+        name=nm;
+        ismarried=marry;
+        numchil=nchil;
+    }
+
+
+    public void getinfo(){
+        if (ismarried == true){
+        System.out.println("나이가"+age+", 이름이 "+name+"이라는 남자가 있습니다. 이 남자는 결혼을 했고, 자식이 "+numchil+"명 있습니다.");
+        }
+        else {
+        System.out.println("나이가"+age+", 이름이 "+name+"이라는 남자가 있습니다. 이 남자는 결혼을 안했고, 자식이 "+numchil+"명 있습니다.");
+        }
+    }
+
+
+}

@@ -1,0 +1,66 @@
+public class Dog {
+    private String name;
+    private String type;
+   
+    public Dog(String name, String type){
+        this.name=name;
+        this.type=type;
+    }
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name=name;
+    }
+    public String getType(){
+        return type;
+    }
+    public void setType(String type){
+        this.type=type;
+    }
+    public String showDogInfo(){
+        return name+","+type;
+    }
+}
+
+
+
+public class DogTestArrayList {
+    private Dog ArrayList[];
+
+
+    public DogTestArrayList(int n){
+        ArrayList=new Dog[n];
+    }
+    public void setDog(int index, Dog dog){
+        ArrayList[index]=dog;
+    }
+    public void showAllDogs(){
+        for(Dog d: ArrayList){
+            if (d!=null){
+                d.showDogInfo();
+            }
+        }
+    }
+
+
+}
+
+
+
+
+
+public class DogTest {
+    public static void main(String args[]){
+        DogTestArrayList list = new DogTestArrayList(5);
+
+
+        list.setDog(0, new Dog("초코", "타입"));
+        list.setDog(1, new Dog("보리", "리트리버"));
+        list.setDog(2, new Dog("콩이", "시바견"));
+        list.setDog(3, new Dog("루이", "비숑"));
+        list.setDog(4, new Dog("쿠키", "비숑"));
+
+
+    }
+}

@@ -1,0 +1,88 @@
+package Stt;
+
+
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
+
+
+public class ClassTest {
+    public static void main(String[] args) throws ClassNotFoundException {
+        Person person = new Person();
+        Class<?> pClass = Class.forName("Stt.Person");
+        //Object의 getClass()메서드
+        System.out.println("클래스 이름: "+ pClass.getName());
+        System.out.println();
+
+
+        System.out.println("==생성자 목록==");
+        Constructor<?>[] constructors=pClass.getConstructors();
+        for (Constructor<?> c: constructors){
+            System.out.println(c);
+        }
+        System.out.println();
+
+
+        System.out.println("==메서드 목록==");
+        Method[] methods= pClass.getMethods();
+        for (Method m: methods){
+            System.out.println(m);
+        }
+        System.out.println();
+
+
+        System.out.println("===필드 목록===");
+        Field[] fields=pClass.getDeclaredFields();
+        for (Field f: fields){
+            System.out.println(f);
+        }
+    }
+}
+
+
+ClassTest
+
+package Stt;
+
+
+public class Person {
+    private String name;
+    private int age;
+
+
+    public Person(){}
+
+
+    public Person(String name){
+        this.name=name;
+    }
+
+
+    public Person(String name, int age){
+        this.name=name;
+        this.age=age;
+    }
+
+
+    public String getName(){
+        return name;
+    }
+
+
+    public void setName(String name){
+        this.name=name;
+    }
+
+
+    public int getAge(){
+        return age;
+    }
+
+
+    public void setAge(int age){
+        this.age=age;
+    }
+}
+
+
+Person

@@ -1,0 +1,30 @@
+public class recipient {
+    private int num;
+    private int ID;
+    private String date;
+    private String name;
+    private int gnum;
+    private String address;
+
+
+    recipient(int num1, int ID1, String date1, String name1, int gnum1, String address1){
+        num=num1;
+        ID=ID1;
+        date=date1;
+        name=name1;
+        gnum=gnum1;
+        address=address1;}
+
+
+
+
+    public void getInfo(){
+        System.out.println("==출력 결과==");
+        System.out.println("주문번호: "+num);
+        System.out.println("주문 날짜: "+date);
+        System.out.println("주문자 이름: "+name);
+        System.out.println("주문 상품 번호: "+ gnum);
+        System.out.println("배송 주소: " +address);
+        System.out.println("주문자 ID: "+ID);
+    }
+    }

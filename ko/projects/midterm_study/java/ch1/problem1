@@ -1,0 +1,44 @@
+public class MyDate {
+    private int day;
+    private int month;
+    private int year;
+
+
+    MyDate(int num1, int num2, int num3) {
+        day=num1;
+        month=num2;
+        year=num3;
+    }
+
+
+    public int getday (){
+        return day;
+    }
+    public int getmonth (){
+        return month;
+    }
+    public int getyear (){
+        return year;
+    }
+
+
+    public void setday (int num) {
+        day=num;
+    }
+        public void setmonth (int num) {
+        month=num;
+    }
+        public void setyear (int num) {
+        year=num;
+    }
+
+
+        public boolean isValid(int num1, int num2, int num3){
+            return (num1==day && num2==month && num3==year);
+        }
+
+
+
+
+}
+

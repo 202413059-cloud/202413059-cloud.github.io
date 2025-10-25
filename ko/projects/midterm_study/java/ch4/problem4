@@ -1,0 +1,43 @@
+package Stt;
+
+
+public class Student {
+    private String id;
+    private String name;
+
+
+    public Student(String id, String name){
+        this.id=id;
+        this.name=name;
+    }
+
+
+    //원래 equals(): 같은 메모리 주소(같은 객체)일때만 true 반환
+    @Override
+    public boolean equals(Object obj){
+        Student stu = (Student) obj;
+        if (this.id==stu.id){
+            return true;
+        }
+        return false;
+    }
+
+
+    //원래 toString: 내부적으로 각 요소의 해당 메서드를
+    //호출하여 문자열로 만드는데 기본적으로 객체의 메모리 주소 해시값이 출력됨 [Student@6d06d69c, Student@7852e922, ...]
+    @Override
+    public String toString(){
+        return id+":"+name;
+    }
+
+
+    //원래의 hashCOde: 객체 중복 여부 판단 - 해당 값이 같아야함
+    //기본적으로 Object 클래스의 hashCode(): '메모리 주소 기반 값'
+    @Override
+    public int hashCode(){
+        return id.hashCode();
+    }
+    //id는 string 형이므로 id.hashCode()로 접근할것
+}
+
+
