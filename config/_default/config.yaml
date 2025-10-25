@@ -1,0 +1,21 @@
+title: "Lee Jueun's midterm Project"
+baseURL: "https://202413059-cloud.github.io/"
+canonifyURLs: true
+languageCode: "en"
+
+params:
+  logo:
+    main: "images/logo.png"
+    alt: "Lee Jueun Logo"
+
+defaultContentLanguage: en
+hasCJKLanguage: false
+removePathAccents: true
+
+build:
+  writeStats: true
+enableEmoji: true
+enableRobotsTXT: true
+outputs:
+  home: [HTML, RSS]
+  section: [HTML, RSS]

@@ -1,0 +1,8 @@
+{{define "main"}}
+<main class = "container">
+    {{ partial "slider.html" . }}
+    {{/*기존 홈 콘텐츠(원하면 블록 추가)*/}}
+    {{ .Content}}
+    {{ partial "fab.html" . }}
+</main>
+{{end}}

@@ -1,0 +1,39 @@
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--SEO 기본-->
+    <title>{{ .Title }} | {{ .Site.Title }}</title>
+    <meta name="description" content="{{ .Site.Params.description }}">
+    <meta name="keywords" content="{{ delimit .Site.Params.keywords ", " }}">
+    <meta name="author" content="{{ .Site.Params.author}}">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="{{ .Permalink }}">
+
+    <!--Open Graph (SNS 미리보기)-->
+    <meta property="og:title" content="{{ .Title}}">
+    <meta property="og:description" content="{{ .Site.Params.description }}">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ .Permalink }}">
+    {{ with .Params.images }}
+    <meta property="og:image" content="{{ index . 0}}">
+    {{ else }}
+        <meta property="og:image" content="{{ "images/og.jpg" | relURL }}">
+    {{ end }}
+
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{ .Title }}">
+    <meta name="twitter:description" content="{{ .Site.Params.description }}">
+    {{ with .Params.images }}
+        <meta name="twitter:image" content="{{ index . 0 }}">
+    {{ else }}
+        <meta name="twitter:image" content="{{ "images/og.jpg" | relURL }}">
+    {{ end }}
+
+    <link rel="icon" href="{{ "favicon.ico" | absURL }}" type="image/x-icon">
+
+    <!-- 스타일/스크립트는 Hugo Pipes에서 로드-->
+    {{ block "head_includes" . }}{{ end }}
+</head>
